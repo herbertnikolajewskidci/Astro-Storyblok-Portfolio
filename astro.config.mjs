@@ -24,6 +24,7 @@ export default defineConfig({
                 teaser: "storyblok/Teaser",
                 picslider: "storyblok/PicSlider",
                 slide: "storyblok/Slide",
+                scroller: "storyblok/Scroller",
             },
         }),
         tailwind(),
