@@ -1,7 +1,6 @@
 ---
 const { blok } = Astro.props;
 const { id, number, heading, text, imgSrc, starter } = blok;
-console.log(`bg-[url(${imgSrc.filename})]`);
 ---
 
 <input type="radio" name="slide" id={id} checked={starter} class="hidden" />
