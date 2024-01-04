@@ -1,0 +1,19 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const { blok } = Astro.props;
+---
+
+<section
+    class="w-full flex items-center justify-center"
+    {...storyblokEditable(blok)}
+>
+    <div class="h-96 flex flex-nowrap justify-start gap-5">
+        {
+            blok.slides?.map((blok) => {
+                return <StoryblokComponent blok={blok} />;
+            })
+        }
+    </div>
+</section>
