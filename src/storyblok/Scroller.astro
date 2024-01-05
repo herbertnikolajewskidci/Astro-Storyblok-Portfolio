@@ -3,7 +3,7 @@ const { blok } = Astro.props;
 const listItems = blok.item.tbody.map((listItem) => listItem.body[0].value);
 ---
 
-<section class="grid place-content-center m-10">
+<section class="grid place-content-center py-5">
     <div class="scroller" data-speed="slow" data-direction="left">
         <ul class="tag-list scroller__inner">
             {listItems.map((listItem) => <li>{listItem}</li>)}
