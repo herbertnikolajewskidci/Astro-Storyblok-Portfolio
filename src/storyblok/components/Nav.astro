@@ -1,0 +1,40 @@
+---
+import Logo from "../../components/Logo.astro";
+import { storyblokEditable } from "@storyblok/astro";
+const { blok } = Astro.props;
+
+const navItemsKeys = blok.navItems.thead.map(
+    (navItem: { value: string }) => navItem.value
+);
+const navItemsValues = blok.navItems.tbody.map(
+    (navItem: { body: Array<{ value: string }> }) =>
+        navItem.body.map((bodyItem) => bodyItem.value)
+);
+const navItems = navItemsValues.map((navItem: []) => {
+    const navItemObject = {};
+    navItem.forEach((item: string, index: number) => {
+        navItemObject[navItemsKeys[index]] = item;
+    });
+    return navItemObject;
+});
+
+const homeRoute = navItems.find(
+    (navItem: { href: string }) => navItem.href === "/"
+).href;
+---
+
+<nav
+    class="container mx-auto flex justify-between p-4 text-[#f7f6fd] text-2xl"
+    {...storyblokEditable(blok)}
+>
+    <Logo href={homeRoute} />
+    <ul class="flex justify-between gap-4">
+        {
+            navItems.map((navItem) => (
+                <li>
+                    <a href={navItem.href}>{navItem.name}</a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>

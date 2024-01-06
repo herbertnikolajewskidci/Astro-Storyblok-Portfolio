@@ -1,14 +1,22 @@
 ---
-import { storyblokEditable } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 
-const { blok } = Astro.props
+const { blok } = Astro.props;
+
+const header = blok.body?.find((bodyItem) => bodyItem.component === "header");
+const footer = blok.body?.find((bodyItem) => bodyItem.component === "footer");
 ---
 
-<main {...storyblokEditable(blok)}>
-  {
-    blok.body?.map((blok) => {
-      return <StoryblokComponent blok={blok} />
-    })
-  }
+<StoryblokComponent blok={header} />
+<main {...storyblokEditable(blok)} class="container mx-auto">
+    {
+        blok.body
+            ?.filter((bodyItem) => bodyItem.component !== "header")
+            .filter((bodyItem) => bodyItem.component !== "footer")
+            .map((blok) => {
+                return <StoryblokComponent blok={blok} />;
+            })
+    }
 </main>
+<StoryblokComponent blok={footer} />

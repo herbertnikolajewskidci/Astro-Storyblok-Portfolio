@@ -1,10 +1,33 @@
+---
+import Logo from "./Logo.astro";
+
+const navItems = [
+    {
+        name: "Home",
+        href: "/",
+    },
+    {
+        name: "Über uns",
+        href: "/about",
+    },
+    {
+        name: "Kontakt",
+        href: "/contact",
+    },
+];
+
+const homeRoute = navItems.find((navItem) => navItem.href === "/").href;
+---
+
 <nav class="container mx-auto flex justify-between p-4 text-[#f7f6fd] text-2xl">
-    <div class="logo">
-        <p><a href="#">Logo</a></p>
-    </div>
+    <Logo href={homeRoute} />
     <ul class="flex justify-between gap-4">
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">Über uns</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        {
+            navItems.map((navItem) => (
+                <li>
+                    <a href={navItem.href}>{navItem.name}</a>
+                </li>
+            ))
+        }
     </ul>
 </nav>
