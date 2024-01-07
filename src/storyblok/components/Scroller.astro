@@ -74,7 +74,10 @@ const listItems = blok.item.tbody.map((listItem) => listItem.body[0].value);
             // add it into the `.scroller-inner`
             scrollerContent.forEach((item) => {
                 const duplicatedItem = item.cloneNode(true);
-                duplicatedItem.setAttribute("aria-hidden", true);
+                (duplicatedItem as HTMLElement).setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
                 scrollerInner.appendChild(duplicatedItem);
             });
         });
