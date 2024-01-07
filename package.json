@@ -10,11 +10,15 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@storyblok/astro": "^3.0.1",
-    "astro": "^3.6.3",
     "@astrojs/tailwind": "^5.0.2",
+    "@storyblok/astro": "^3.0.1",
+    "@vitejs/plugin-basic-ssl": "^1.0.2",
+    "astro": "^3.6.3",
     "tailwindcss": "^3.3.5",
-    "vite": "^5.0.3",
-    "@vitejs/plugin-basic-ssl": "^1.0.2"
+    "vite": "^5.0.3"
+  },
+  "dependencies": {
+    "@designbycode/tailwindcss-mask-image": "^2.0.3",
+    "@pyncz/tailwind-mask-image": "^2.0.0"
   }
 }
