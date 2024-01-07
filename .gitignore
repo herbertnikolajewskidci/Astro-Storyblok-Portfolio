@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # Visual Studio Code
 .vscode
+
+
+package-lock.json
